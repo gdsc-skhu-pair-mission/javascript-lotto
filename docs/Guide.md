@@ -10,7 +10,7 @@
 
 | 폴더명   | • snake_case |
 | -------- | ------------ |
-| 파일명   | • camelCase  |
+| 파일명   | • PascalCase |
 | 클래스명 | • PascalCase |
 
 ## 함수 이름 짓기
