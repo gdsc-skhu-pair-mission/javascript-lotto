@@ -1,0 +1,1 @@
+const ERROR = Object.freeze({});
