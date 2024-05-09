@@ -1,3 +1,4 @@
+/* eslint-disable class-methods-use-this */
 const { ERROR_MESSAGE } = require('./constants/Message');
 const { LOTTO } = require('./constants/Constants');
 
@@ -27,14 +28,12 @@ class Lotto {
     // this.checkEmpty(numbers);
   }
 
-  // eslint-disable-next-line class-methods-use-this
   checkLottoArrayLength(numbers) {
     if (numbers.length !== LOTTO.length) {
       throw new Error(ERROR_MESSAGE.out_of_length_lotto);
     }
   }
 
-  // eslint-disable-next-line class-methods-use-this
   checkNunNumber(numbers) {
     numbers.forEach((number) => {
       const parseNumber = Number(number);
@@ -44,7 +43,6 @@ class Lotto {
     });
   }
 
-  // eslint-disable-next-line class-methods-use-this
   checkLottoRange(numbers) {
     numbers.forEach((number) => {
       const parseNumber = Number(number);
@@ -54,7 +52,6 @@ class Lotto {
     });
   }
 
-  // eslint-disable-next-line class-methods-use-this
   checkDuplicateNumber(numbers) {
     const dedupeNumber = new Set(numbers);
     if (dedupeNumber.size !== numbers.length) {
@@ -62,12 +59,9 @@ class Lotto {
     }
   }
 
-  // eslint-disable-next-line class-methods-use-this
-  // checkEmpty(numbers) {
-  //   if (numbers.some((item) => item.trim() === '')) {
-  //     throw new Error('[ERROR] 당첨번호는 중복된 값이 없습니다.');
-  //   }
-  // }
+  getLottoArray() {
+    return this.#numbers;
+  }
 }
 
 module.exports = Lotto;
