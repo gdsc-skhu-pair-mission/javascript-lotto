@@ -5,15 +5,16 @@ const { LOTTO } = require('./constants/Constants');
 class Bonus {
   #bonusNumber;
 
-  constructor(bonusNumber, winningNumber) {
-    this.validate(bonusNumber, winningNumber);
+  constructor(bonusNumber, winningNumbers) {
+    this.validate(bonusNumber, winningNumbers);
     this.#bonusNumber = Number(bonusNumber);
   }
 
-  validate(bonusNumber, winningNumber) {
+  validate(bonusNumber, winningNumbers) {
     const parseNumber = Number(bonusNumber);
     this.checkNunNumber(parseNumber);
     this.checkBonusRange(parseNumber);
+    this.checkDuplicateBonus(parseNumber, winningNumbers);
   }
 
   checkNunNumber(parseNumber) {
@@ -25,6 +26,12 @@ class Bonus {
   checkBonusRange(parseNumber) {
     if (parseNumber < LOTTO.minimum || parseNumber > LOTTO.maximum) {
       throw new Error(ERROR_MESSAGE.out_of_range_bonus);
+    }
+  }
+
+  checkDuplicateBonus(parseNumber, winningNumbers) {
+    if (winningNumbers.includes(parseNumber)) {
+      throw new Error(ERROR_MESSAGE.duplicate_bonus);
     }
   }
 

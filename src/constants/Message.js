@@ -26,6 +26,7 @@ const ERROR_MESSAGE = Object.freeze({
    */
   non_numeric_bonus: '[ERROR] 보너스 번호는 숫자로만 입력해야합니다.',
   out_of_range_bonus: '[ERROR] 보너스 번호는 1부터 45 사이의 숫자여야 합니다.',
+  duplicate_bonus: '[ERROR] 보너스 번호는 로또 번호랑 중복된 숫자를 입력하면 안됩니다.',
 });
 
 module.exports = {

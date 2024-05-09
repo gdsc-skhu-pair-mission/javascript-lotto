@@ -1,5 +1,6 @@
 /* eslint-disable no-new */
 const Bonus = require('../src/Bonus');
+const Lotto = require('../src/Lotto');
 const { ERROR_MESSAGE } = require('../src/constants/Message');
 
 // eslint-disable-next-line max-lines-per-function
@@ -11,7 +12,7 @@ describe('보너스 클래스 테스트', () => {
   });
 
   test('보너스 번호 테스트', () => {
-    const bonus = new Bonus('5');
+    const bonus = new Bonus('5', [1, 2, 3, 4, 6, 7]);
     const bonusNumber = bonus.getBonusNumber();
     expect(bonusNumber).toBe(5);
   });
@@ -20,5 +21,11 @@ describe('보너스 클래스 테스트', () => {
     expect(() => {
       new Bonus('46');
     }).toThrow(ERROR_MESSAGE.out_of_range_bonus);
+  });
+
+  test('보너스 번호가 로또 번호와 중복된 경우 예외 발생', () => {
+    expect(() => {
+      new Bonus('6', [1, 2, 3, 4, 5, 6]);
+    }).toThrow(ERROR_MESSAGE.duplicate_bonus);
   });
 });
