@@ -4,9 +4,19 @@ const { LOTTO } = require('./constants/Constants');
 class Lotto {
   #numbers;
 
-  constructor(numbers) {
+  constructor(inputNumbers) {
+    const numbers = this.changeStringToArray(inputNumbers);
     this.validate(numbers);
     this.#numbers = numbers;
+  }
+
+  changeStringToArray(inputNumbers) {
+    const array = [];
+
+    inputNumbers.split(',').forEach((number) => {
+      array.push(Number(number));
+    });
+    return array;
   }
 
   validate(numbers) {
@@ -14,7 +24,7 @@ class Lotto {
     this.checkNunNumber(numbers);
     this.checkLottoRange(numbers);
     this.checkDuplicateNumber(numbers);
-    this.checkEmpty(numbers);
+    // this.checkEmpty(numbers);
   }
 
   // eslint-disable-next-line class-methods-use-this
