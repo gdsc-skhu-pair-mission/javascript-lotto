@@ -44,4 +44,4 @@ class Purchase {
   }
 }
 
-export default Purchase;
+module.exports = Purchase;

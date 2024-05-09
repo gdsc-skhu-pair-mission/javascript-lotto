@@ -1,5 +1,9 @@
 class App {
-  async play() {}
+  // eslint-disable-next-line class-methods-use-this
+  play() {}
 }
 
-export default App;
+const app = new App();
+app.play();
+
+module.exports = App;

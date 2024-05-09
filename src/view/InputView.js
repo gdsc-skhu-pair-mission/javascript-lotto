@@ -1,6 +1,6 @@
-import { Console } from '@woowacourse/mission-utils';
+const { Console } = require('@woowacourse/mission-utils');
 
-export default class InputView {
+class InputView {
   static async getInputMoney() {
     return Console.readLineAsync('구입금액을 입력해 주세요.\n');
   }
@@ -13,3 +13,5 @@ export default class InputView {
     return Console.readLineAsync('\n보너스 번호를 입력해 주세요.\n');
   }
 }
+
+module.exports = InputView;

@@ -51,10 +51,10 @@ class Lotto {
 
   // eslint-disable-next-line class-methods-use-this
   checkEmpty(numbers) {
-    if (numbers.some((item) => item === undefined)) {
+    if (numbers.some((item) => item.trim() === '')) {
       throw new Error('[ERROR] 당첨번호는 중복된 값이 없습니다.');
     }
   }
 }
 
-export default Lotto;
+module.exports = Lotto;

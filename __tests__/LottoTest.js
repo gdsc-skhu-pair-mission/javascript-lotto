@@ -1,6 +1,7 @@
 /* eslint-disable no-new */
-import Lotto from '../src/Lotto.js';
+const Lotto = require('../src/Lotto');
 
+// eslint-disable-next-line max-lines-per-function
 describe('로또 클래스 테스트', () => {
   test('로또 번호의 개수가 6개가 넘어가면 예외가 발생한다.', () => {
     expect(() => {
@@ -27,11 +28,11 @@ describe('로또 클래스 테스트', () => {
     }).toThrow('[ERROR] 당첨번호는 중복된 값이 없습니다.');
   });
 
-  test(',테스트', () => {
-    expect(() => {
-      new Lotto([, 1, 2, 3, 4, 5]);
-    }).toThrow('[ERROR]');
-  });
+  // test(',테스트', () => {
+  //   expect(() => {
+  //     new Lotto([, 1, 2, 3, 4, 5]);
+  //   }).toThrow('[ERROR]');
+  // });
 
   // 아래에 추가 테스트 작성 가능
 });

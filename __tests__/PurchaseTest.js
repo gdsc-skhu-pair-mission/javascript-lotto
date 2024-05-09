@@ -1,4 +1,4 @@
-import Purchase from '../src/Purchase.js';
+const Purchase = require('../src/Purchase');
 
 // eslint-disable-next-line max-lines-per-function
 describe('로또 구입금액 테스트', () => {
