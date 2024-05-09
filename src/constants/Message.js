@@ -4,6 +4,10 @@ const INPUT_MESSAGE = Object.freeze({
   bonus_number: '\n보너스 번호를 입력해 주세요.\n',
 });
 
+const OUTPUT_MESSAGE = Object.freeze({
+  purchase_count: (lottoCount) => `\n${lottoCount}개를 구매했습니다.\n`,
+});
+
 const ERROR_MESSAGE = Object.freeze({
   /*
    * 구입금액 입력 유효성 검사 메세지
@@ -31,5 +35,6 @@ const ERROR_MESSAGE = Object.freeze({
 
 module.exports = {
   INPUT_MESSAGE,
+  OUTPUT_MESSAGE,
   ERROR_MESSAGE,
 };
