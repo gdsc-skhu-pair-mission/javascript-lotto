@@ -10,7 +10,7 @@ const LottoMaker = {
         LOTTO.maximum,
         LOTTO.length,
       );
-      lotto.sort((a, b) => a - b); // 각 로또 번호 세트를 오름차순으로 정렬
+      lotto.sort((a, b) => a - b);
       lottos.push(lotto);
     }
     return lottos;

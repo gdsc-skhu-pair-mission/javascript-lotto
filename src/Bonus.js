@@ -1,3 +1,4 @@
+/* eslint-disable class-methods-use-this */
 const { ERROR_MESSAGE } = require('./constants/Message');
 const { LOTTO } = require('./constants/Constants');
 
