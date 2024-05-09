@@ -20,6 +20,7 @@ class Game {
   async getPurchaseAmount() {
     const inputUserMoney = await InputView.getInputMoney();
     this.purchase = new Purchase(inputUserMoney);
+    OutputView.showLottoCount(this.purchase.getQuantity());
   }
 
   showLottoNumbers() {

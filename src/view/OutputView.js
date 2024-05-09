@@ -8,7 +8,7 @@ class OutPutView {
   }
 
   static showLottoNumbers(lotto) {
-    Console.print(lotto);
+    Console.print(`[${lotto.join(', ')}]`);
   }
 
   static async getBonusNumber() {
