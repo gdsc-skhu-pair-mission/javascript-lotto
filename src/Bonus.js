@@ -1,6 +1,6 @@
 /* eslint-disable class-methods-use-this */
-const { ERROR_MESSAGE } = require('./constants/Message');
-const { LOTTO } = require('./constants/Constants');
+import ERROR_MESSAGE from './constants/Message.js';
+import LOTTO from './constants/Constants.js';
 
 class Bonus {
   #bonusNumber;
@@ -40,4 +40,4 @@ class Bonus {
   }
 }
 
-module.exports = Bonus;
+export default Bonus;

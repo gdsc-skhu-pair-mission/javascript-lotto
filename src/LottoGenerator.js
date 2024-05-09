@@ -1,5 +1,5 @@
-const { Random } = require('@woowacourse/mission-utils');
-const { LOTTO } = require('./constants/Constants');
+import Random from '@woowacourse/mission-utils';
+import LOTTO from './constants/Constants.js';
 
 const LottoGenerator = {
   generate(quantity) {
@@ -13,4 +13,4 @@ const LottoGenerator = {
   },
 };
 
-module.exports = LottoGenerator;
+export default LottoGenerator;

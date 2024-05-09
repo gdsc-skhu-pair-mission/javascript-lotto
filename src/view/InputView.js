@@ -1,5 +1,5 @@
-const { Console } = require('@woowacourse/mission-utils');
-const { INPUT_MESSAGE } = require('../constants/Message');
+import { Console } from '@woowacourse/mission-utils';
+import INPUT_MESSAGE from '../constants/Message.js';
 
 class InputView {
   static async getInputMoney() {
@@ -15,4 +15,4 @@ class InputView {
   }
 }
 
-module.exports = InputView;
+export default InputView;

@@ -1,5 +1,5 @@
-const { Console } = require('@woowacourse/mission-utils');
-const { OUTPUT_MESSAGE } = require('../constants/Message');
+import { Console } from '@woowacourse/mission-utils';
+import OUTPUT_MESSAGE from '../constants/Message.js';
 
 class OutPutView {
   static async showLottoCount(lottoCount) {
@@ -15,4 +15,4 @@ class OutPutView {
   }
 }
 
-module.exports = OutPutView;
+export default OutPutView;

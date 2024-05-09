@@ -1,6 +1,6 @@
 /* eslint-disable class-methods-use-this */
-const { ERROR_MESSAGE } = require('./constants/Message');
-const { MONEY } = require('./constants/Constants');
+import ERROR_MESSAGE from './constants/Message.js';
+import MONEY from './constants/Constants.js';
 
 class Purchase {
   #amount;
@@ -47,4 +47,4 @@ class Purchase {
   }
 }
 
-module.exports = Purchase;
+export default Purchase;

@@ -1,8 +1,8 @@
 /* eslint-disable class-methods-use-this */
-const { Lotto } = require('./Lotto');
-const { Bonus } = require('./Bonus');
-const { Purchase } = require('./Purchase');
-const { InputView } = require('./view/InputView');
+import Lotto from './Lotto.js';
+import Bonus from './Bonus.js';
+import Purchase from './Purchase.js';
+import InputView from './view/InputView.js';
 
 class Game {
   constructor() {
@@ -17,4 +17,4 @@ class Game {
   }
 }
 
-module.exports = Game;
+export default Game;
