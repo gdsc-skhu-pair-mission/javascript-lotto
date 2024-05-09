@@ -1,13 +1,14 @@
+/* eslint-disable import/extensions */
 import { Console } from '@woowacourse/mission-utils';
-import OUTPUT_MESSAGE from '../constants/Message.js';
+import { OUTPUT_MESSAGE } from '../constants/Message.js';
 
 class OutPutView {
-  static async showLottoCount(lottoCount) {
-    return Console.Print(OUTPUT_MESSAGE.purchase_count(lottoCount));
+  static showLottoCount(lottoCount) {
+    return Console.print(OUTPUT_MESSAGE.purchase_count(lottoCount));
   }
 
-  static async showLottoNumbers(lottos) {
-    return Console.Print(`${lottos}\n`);
+  static showLottoNumbers(lotto) {
+    Console.print(lotto);
   }
 
   static async getBonusNumber() {

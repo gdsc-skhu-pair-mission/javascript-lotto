@@ -1,6 +1,7 @@
 /* eslint-disable class-methods-use-this */
-import ERROR_MESSAGE from './constants/Message.js';
-import LOTTO from './constants/Constants.js';
+/* eslint-disable import/extensions */
+import { ERROR_MESSAGE } from './constants/Message.js';
+import { LOTTO } from './constants/Constants.js';
 
 class Bonus {
   #bonusNumber;
