@@ -32,7 +32,7 @@ describe('로또 클래스 테스트', () => {
   test('로또 금액 배열로 변환 테스트', () => {
     const lotto = new Lotto('1,2,3,4,5,6');
     const test = lotto.changeStringToArray('1,2,3,4,5,6');
-    expect(test).toBe([1, 2, 3, 4, 5, 6]);
+    expect(test).toStrictEqual([1, 2, 3, 4, 5, 6]);
   });
   // test(',테스트', () => {
   //   expect(() => {
