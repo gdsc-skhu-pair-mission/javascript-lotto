@@ -1,5 +1,9 @@
-const INPUT_MESSAGE = Object.freeze({
-  enter_purchase_amount: '구입금액을 입력해 주세요.\n',
+const MONEY = Object.freeze({
+  unit: 1000,
+  zero: 0,
+  blank: '',
 });
 
-module.exports = { INPUT_MESSAGE };
+module.exports = {
+  MONEY,
+};

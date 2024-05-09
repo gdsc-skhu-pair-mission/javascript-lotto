@@ -1,4 +1,5 @@
 const Purchase = require('../src/Purchase');
+const { ERROR_MESSAGE } = require('../src/constants/Message');
 
 // eslint-disable-next-line max-lines-per-function
 describe('로또 구입금액 테스트', () => {
@@ -12,7 +13,7 @@ describe('로또 구입금액 테스트', () => {
     expect(() => {
       // eslint-disable-next-line no-new
       new Purchase('-1');
-    }).toThrow('[ERROR] 숫자가 0보다 작으면 안됩니다.');
+    }).toThrow(ERROR_MESSAGE.non_positive_money);
   });
 
   test('숫자가 아닌 경우 에러 발생', () => {

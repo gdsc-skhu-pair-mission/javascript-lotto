@@ -1,4 +1,7 @@
 /* eslint-disable class-methods-use-this */
+const { ERROR_MESSAGE } = require('./constants/Message');
+const { MONEY } = require('./constants/Constants');
+
 class Purchase {
   #amount;
 
@@ -17,30 +20,30 @@ class Purchase {
 
   checkNunNumber(amount) {
     if (Number.isNaN(amount)) {
-      throw new Error('[ERROR] 숫자가 아닌 값을 입력하실 수 없습니다.');
+      throw new Error(ERROR_MESSAGE.non_numeric_money);
     }
   }
 
   checkEmpty(amount) {
-    if (amount.trim() === '') {
-      throw new Error('[ERROR] 공백을 입력하실 수 없습니다.');
+    if (amount.trim() === MONEY.blank) {
+      throw new Error(ERROR_MESSAGE.empty_money);
     }
   }
 
   checkPositiveNumber(number) {
-    if (number < 0) {
-      throw new Error('[ERROR] 숫자가 0보다 작으면 안됩니다.');
+    if (number < MONEY.zero) {
+      throw new Error(ERROR_MESSAGE.non_positive_money);
     }
   }
 
   checkNotMultipleOfThousand(number) {
-    if (number % 1000 !== 0) {
-      throw new Error('[ERROR] 1000원 단위로 입력하셔야 합니다.');
+    if (number % MONEY.unit !== MONEY.zero) {
+      throw new Error(ERROR_MESSAGE.non_divisible_money);
     }
   }
 
   getQuantity() {
-    return this.#amount / 1000;
+    return this.#amount / MONEY.unit;
   }
 }
 
