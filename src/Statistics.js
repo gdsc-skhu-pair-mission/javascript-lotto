@@ -8,6 +8,10 @@ class Statistics {
     // this.#statistics = statistics;
   }
 
+  main() {
+    this.calculateResult();
+  }
+
   calculateResult() {
     this.lottos.forEach((lotto) => {
       const matchNumber = lotto.filter((number) =>
@@ -27,6 +31,10 @@ class Statistics {
         this.#results['5+1']++;
       }
     }
+  }
+
+  getResult() {
+    return this.#results;
   }
 }
 
