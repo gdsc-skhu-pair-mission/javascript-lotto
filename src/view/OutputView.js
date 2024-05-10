@@ -4,15 +4,19 @@ import { OUTPUT_MESSAGE } from '../constants/Message.js';
 
 class OutPutView {
   static showLottoCount(lottoCount) {
-    return Console.print(OUTPUT_MESSAGE.purchase_count(lottoCount));
+    Console.print(OUTPUT_MESSAGE.purchase_count(lottoCount));
   }
 
   static showLottoNumbers(lotto) {
     Console.print(`[${lotto.join(', ')}]`);
   }
 
-  static async getBonusNumber() {
-    return Console.readLineAsync();
+  static showStatistics(statistics) {
+    Console.print(OUTPUT_MESSAGE.winning_statistics(statistics));
+  }
+
+  static showProfit(profit) {
+    Console.print(OUTPUT_MESSAGE.total_profit(profit));
   }
 }
 
