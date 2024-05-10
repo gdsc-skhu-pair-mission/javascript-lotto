@@ -42,8 +42,6 @@ class Game {
   async getBonusNumber() {
     const inputBonusNumber = await InputView.getBonusNumber();
     this.bonusNumber = new Bonus(inputBonusNumber, this.winningNumbers).getBonusNumber();
-    console.log(typeof this.bonusNumber);
-    console.log(this.bonusNumber);
   }
 }
 
