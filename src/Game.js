@@ -9,7 +9,7 @@ import LottoGenerator from './LottoGenerator.js';
 
 class Game {
   constructor() {
-    this.purchase = null;
+    this.purchase = ' ';
     this.winningNumbers = [];
     this.bonusNumber = 0;
   }
@@ -41,7 +41,10 @@ class Game {
 
   async getBonusNumber() {
     const inputBonusNumber = await InputView.getBonusNumber();
-    this.bonusNumber = new Bonus(inputBonusNumber, this.winningNumbers).getBonusNumber();
+    this.bonusNumber = new Bonus(
+      inputBonusNumber,
+      this.winningNumbers,
+    ).getBonusNumber();
   }
 }
 
