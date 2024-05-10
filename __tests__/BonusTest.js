@@ -1,7 +1,7 @@
 /* eslint-disable no-new */
-const Bonus = require('../src/Bonus');
-const Lotto = require('../src/Lotto');
-const { ERROR_MESSAGE } = require('../src/constants/Message');
+/* eslint-disable import/extensions */
+import Bonus from '../src/Bonus.js';
+import { ERROR_MESSAGE } from '../src/constants/Message.js';
 
 // eslint-disable-next-line max-lines-per-function
 describe('보너스 클래스 테스트', () => {

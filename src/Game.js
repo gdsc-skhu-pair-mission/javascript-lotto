@@ -10,11 +10,15 @@ import LottoGenerator from './LottoGenerator.js';
 class Game {
   constructor() {
     this.purchase = null;
+    this.winningNumbers = [];
+    this.bonusNumber = 0;
   }
 
   async start() {
     await this.getPurchaseAmount();
     this.showLottoNumbers();
+    await this.getWinningNumbers();
+    await this.getBonusNumber();
   }
 
   async getPurchaseAmount() {
@@ -28,6 +32,18 @@ class Game {
     lottos.forEach((lotto) => {
       OutputView.showLottoNumbers(lotto);
     });
+  }
+
+  async getWinningNumbers() {
+    const inputWinningNumber = await InputView.getWinningNumbers();
+    this.winningNumbers = new Lotto(inputWinningNumber).getLottoArray();
+  }
+
+  async getBonusNumber() {
+    const inputBonusNumber = await InputView.getBonusNumber();
+    this.bonusNumber = new Bonus(inputBonusNumber, this.winningNumbers).getBonusNumber();
+    console.log(typeof this.bonusNumber);
+    console.log(this.bonusNumber);
   }
 }
 

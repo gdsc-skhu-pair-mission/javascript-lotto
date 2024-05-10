@@ -1,7 +1,8 @@
 /* eslint-disable max-lines-per-function */
 /* eslint-disable arrow-body-style */
-const MissionUtils = require('@woowacourse/mission-utils');
-const App = require('../src/App');
+/* eslint-disable import/extensions */
+import { MissionUtils } from '@woowacourse/mission-utils';
+import App from '../src/App.js';
 
 const mockQuestions = (inputs) => {
   MissionUtils.Console.readLineAsync = jest.fn();

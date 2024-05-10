@@ -1,5 +1,6 @@
-const Purchase = require('../src/Purchase');
-const { ERROR_MESSAGE } = require('../src/constants/Message');
+/* eslint-disable import/extensions */
+import Purchase from '../src/Purchase.js';
+import { ERROR_MESSAGE } from '../src/constants/Message.js';
 
 // eslint-disable-next-line max-lines-per-function
 describe('로또 구입금액 테스트', () => {
