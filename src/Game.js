@@ -17,14 +17,14 @@ class Game {
   }
 
   async start() {
-    await this.getPurchaseAmount();
+    await this.initPurchaseAmount();
     this.showLottoNumbers();
-    await this.getWinningNumbers();
-    await this.getBonusNumber();
+    await this.initWinningNumbers();
+    await this.initBonusNumber();
     this.showResult();
   }
 
-  async getPurchaseAmount() {
+  async initPurchaseAmount() {
     const inputUserMoney = await InputView.getInputMoney();
     this.purchase = new Purchase(inputUserMoney);
     OutputView.showLottoCount(this.purchase.getQuantity());
@@ -37,12 +37,12 @@ class Game {
     });
   }
 
-  async getWinningNumbers() {
+  async initWinningNumbers() {
     const inputWinningNumber = await InputView.getWinningNumbers();
     this.winningNumbers = new Lotto(inputWinningNumber).getLottoArray();
   }
 
-  async getBonusNumber() {
+  async initBonusNumber() {
     const inputBonusNumber = await InputView.getBonusNumber();
     this.bonusNumber = new Bonus(
       inputBonusNumber,
