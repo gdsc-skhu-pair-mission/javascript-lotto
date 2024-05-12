@@ -30,7 +30,7 @@ export const LOTTO_RESULT = Object.freeze({
     message: '5개 일치 (1,500,000원) - ',
   },
   SECOND: {
-    match: 5,
+    match: '5+1',
     bonus: true,
     prize: 30000000,
     message: '5개 일치, 보너스 볼 일치 (30,000,000원) - ',

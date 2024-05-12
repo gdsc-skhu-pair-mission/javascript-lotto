@@ -1,3 +1,5 @@
+import { LOTTO_RESULT } from './Constants.js';
+
 export const INPUT_MESSAGE = Object.freeze({
   purchase_amount: '구입금액을 입력해 주세요.\n',
   winning_numbers: '\n당첨 번호를 입력해 주세요.\n',
@@ -13,8 +15,15 @@ export const OUTPUT_MESSAGE = Object.freeze({
   /*
    * 당첨 통계 출력 메세지
    */
-  winning_statistics: (statistics) => `\n당첨통계\n---\n${statistics[3]}\n`,
+  winning_statistics: (statistics) => {
+    let resultString = `\n당첨통계\n---\n`;
 
+    Object.values(LOTTO_RESULT).forEach((result) => {
+      resultString += `${result.message}${statistics[result.match]}개\n`;
+    });
+
+    return resultString;
+  },
   /*
    * 총 수익률 출력 메세지
    */

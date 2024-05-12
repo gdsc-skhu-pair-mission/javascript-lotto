@@ -58,6 +58,7 @@ class Game {
     );
     statistics.main();
     const result = statistics.getResult();
+    OutputView.showStatistics(result);
     console.log(result);
   }
 }
