@@ -1,3 +1,5 @@
+/* eslint-disable import/extensions */
+
 import { LOTTO_RESULT } from './constants/Constants.js';
 
 class Statistics {
@@ -39,11 +41,14 @@ class Statistics {
       sum += value.prize * this.#results[value.match];
     });
 
+    const COMMA_SEPARATOR_REGEX = /\B(?=(\d{3})+(?!\d))/g;
+    const THOUSANDS_SEPARATOR_REGEX = /\B(?=(\d{3})+(?!\d))/g;
+
     const result = Math.round((sum / inputAmount) * 1000) / 10; // 소숫점 둘째 자리에서 반올림(*1000), 퍼센트로 표현(/10)
     if (result % 1 !== 0) {
-      return result.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+      return result.toString().replace(COMMA_SEPARATOR_REGEX, ',');
     }
-    return result.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',') + '.0';
+    return result.toString().replace(THOUSANDS_SEPARATOR_REGEX, ',') + '.0';
   }
 
   getResult() {

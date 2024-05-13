@@ -20,7 +20,7 @@ describe('로또 구입금액 테스트', () => {
   test('숫자가 아닌 경우 에러 발생', () => {
     expect(() => {
       // eslint-disable-next-line no-new
-      new Purchase('굿');
+      new Purchase('1000j');
     }).toThrow('[ERROR]');
   });
 

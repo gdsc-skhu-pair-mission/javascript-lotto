@@ -1,3 +1,4 @@
+/* eslint-disable import/extensions */
 import { LOTTO_RESULT } from './Constants.js';
 
 export const INPUT_MESSAGE = Object.freeze({

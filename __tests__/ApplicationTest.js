@@ -68,7 +68,7 @@ describe('로또 테스트', () => {
 
     // when
     const app = new App();
-    await app.play();
+    app.play();
 
     // then
     const logs = [
