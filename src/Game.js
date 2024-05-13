@@ -7,6 +7,7 @@ import Statistics from './Statistics.js';
 import InputView from './view/InputView.js';
 import OutputView from './view/OutputView.js';
 import LottoGenerator from './LottoGenerator.js';
+import Profit from './Profit.js';
 
 class Game {
   constructor() {
@@ -22,6 +23,7 @@ class Game {
     await this.getWinningNumbers();
     await this.getBonusNumber();
     this.showStatistics();
+    this.showProfit();
   }
 
   async getPurchaseAmount() {
@@ -51,6 +53,15 @@ class Game {
     const statistics = new Statistics(this.lottos, this.winningNumbers, this.bonusNumber);
     const results = statistics.getResults();
     OutputView.showStatistics(results);
+  }
+
+  showProfit() {
+    const statistics = new Statistics(this.lottos, this.winningNumbers, this.bonusNumber);
+    const rankResults = statistics.getRankResults();
+    const numberOfLottos = this.lottos.length;
+    const profit = new Profit(rankResults, numberOfLottos);
+    const profitRate = profit.calculateProfitRate();
+    OutputView.showProfit(profitRate);
   }
 }
 

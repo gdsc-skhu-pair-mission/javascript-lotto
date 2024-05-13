@@ -13,12 +13,12 @@ export const OUTPUT_MESSAGE = Object.freeze({
   /*
    * 당첨 통계 출력 메세지
    */
-  winning_statistics: (statistics) => `\n당첨통계\n---\n${statistics}\n`,
+  winning_statistics: (statistics) => `\n당첨통계\n---\n${statistics}`,
 
   /*
    * 총 수익률 출력 메세지
    */
-  total_profit: (profit) => `총 수익률은 ${profit}입니다.`,
+  total_profit: (profit) => `총 수익률은 ${profit}%입니다.`,
 });
 
 export const ERROR_MESSAGE = Object.freeze({

@@ -2,6 +2,7 @@ export const MONEY = Object.freeze({
   unit: 1000,
   zero: 0,
   blank: '',
+  hundred: 100,
 });
 
 export const LOTTO = Object.freeze({

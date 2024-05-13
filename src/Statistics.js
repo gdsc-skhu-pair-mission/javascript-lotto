@@ -60,6 +60,10 @@ class Statistics {
   getResults() {
     return OUTPUT_MESSAGE.winning_statistics(this.formatResults());
   }
+
+  getRankResults() {
+    return this.#results;
+  }
 }
 
 export default Statistics;
