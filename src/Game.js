@@ -59,7 +59,8 @@ class Game {
     statistics.main();
     const result = statistics.getResult();
     OutputView.showStatistics(result);
-    console.log(result);
+    const rate = statistics.calculateRate(this.purchase.getAmount());
+    OutputView.showProfit(rate);
   }
 }
 

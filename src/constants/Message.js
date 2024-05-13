@@ -16,10 +16,10 @@ export const OUTPUT_MESSAGE = Object.freeze({
    * 당첨 통계 출력 메세지
    */
   winning_statistics: (statistics) => {
-    let resultString = `\n당첨통계\n---\n`;
+    let resultString = `\n당첨통계\n---`;
 
     Object.values(LOTTO_RESULT).forEach((result) => {
-      resultString += `${result.message}${statistics[result.match]}개\n`;
+      resultString += `\n${result.message}${statistics[result.match]}개`;
     });
 
     return resultString;
@@ -27,7 +27,7 @@ export const OUTPUT_MESSAGE = Object.freeze({
   /*
    * 총 수익률 출력 메세지
    */
-  total_profit: (profit) => `총 수익률은 ${profit}입니다.`,
+  total_profit: (profit) => `총 수익률은 ${profit}%입니다.`,
 });
 
 export const ERROR_MESSAGE = Object.freeze({
