@@ -19,7 +19,7 @@ class Profit {
   calculateProfitRate() {
     const totalPrize = this.calculateTotalPrize();
     const profit = (totalPrize / this.totalCost) * MONEY.hundred;
-    return parseFloat(profit.toFixed(1));
+    return Number(profit.toFixed(1)).toLocaleString();
   }
 }
 
