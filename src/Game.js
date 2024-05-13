@@ -21,7 +21,7 @@ class Game {
     this.showLottoNumbers();
     await this.getWinningNumbers();
     await this.getBonusNumber();
-    this.showResult();
+    this.showStatistics();
   }
 
   async getPurchaseAmount() {
@@ -44,21 +44,13 @@ class Game {
 
   async getBonusNumber() {
     const inputBonusNumber = await InputView.getBonusNumber();
-    this.bonusNumber = new Bonus(
-      inputBonusNumber,
-      this.winningNumbers,
-    ).getBonusNumber();
+    this.bonusNumber = new Bonus(inputBonusNumber, this.winningNumbers).getBonusNumber();
   }
 
-  showResult() {
-    const statistics = new Statistics(
-      this.lottos,
-      this.winningNumbers,
-      this.bonusNumber,
-    );
-    statistics.main();
-    const result = statistics.getResult();
-    console.log(result);
+  showStatistics() {
+    const statistics = new Statistics(this.lottos, this.winningNumbers, this.bonusNumber);
+    const results = statistics.getResults();
+    OutputView.showStatistics(results);
   }
 }
 

@@ -1,40 +1,64 @@
+import { LOTTO_RESULT } from './constants/Constants.js';
+import { OUTPUT_MESSAGE } from './constants/Message.js';
+
 class Statistics {
-  #results = { 3: 0, 4: 0, 5: 0, '5+1': 0, 6: 0 };
+  #results = {
+    FIFTH: 0,
+    FOURTH: 0,
+    THIRD: 0,
+    SECOND: 0,
+    FIRST: 0,
+  };
 
-  constructor(lottos, winningNumber, bonusNumber) {
+  constructor(lottos, winningNumbers, bonusNumber) {
     this.lottos = lottos;
-    this.winningNumber = winningNumber;
+    this.winningNumbers = winningNumbers;
     this.bonusNumber = bonusNumber;
-    // this.#statistics = statistics;
+    this.calculateResults();
   }
 
-  main() {
-    this.calculateResult();
-  }
-
-  calculateResult() {
+  calculateResults() {
     this.lottos.forEach((lotto) => {
-      const matchNumber = lotto.filter((number) =>
-        this.winningNumber.includes(number),
-      ).length;
-      this.calculateRank(matchNumber, lotto);
+      const matchCount = lotto.filter((num) => this.winningNumbers.includes(num)).length;
+      const hasBonus = lotto.includes(this.bonusNumber);
+      this.updateResults(matchCount, hasBonus);
     });
   }
 
-  calculateRank(matchNumber, lotto) {
-    if (matchNumber >= 3) {
-      this.#results[matchNumber]++;
-    }
-    if (matchNumber === 5) {
-      if (lotto.includes(this.bonusNumber)) {
-        this.#results[matchNumber]--;
-        this.#results['5+1']++;
-      }
+  updateResults(matchCount, hasBonus) {
+    switch (matchCount) {
+      case 3:
+        this.#results.FIFTH++;
+        break;
+      case 4:
+        this.#results.FOURTH++;
+        break;
+      case 5:
+        if (hasBonus) {
+          this.#results.SECOND++;
+        }
+        this.#results.THIRD++;
+        break;
+      case 6:
+        this.#results.FIRST++;
+        break;
+      default:
+        break;
     }
   }
 
-  getResult() {
-    return this.#results;
+  formatResults() {
+    const resultStrings = [];
+    Object.entries(LOTTO_RESULT).forEach(([rank, { match, bonus, prize }]) => {
+      const count = this.#results[rank];
+      const message = `${match}개 일치${bonus ? ', 보너스 볼 일치' : ''} (${prize.toLocaleString()}원) - ${count}개`;
+      resultStrings.push(message);
+    });
+    return resultStrings.join('\n');
+  }
+
+  getResults() {
+    return OUTPUT_MESSAGE.winning_statistics(this.formatResults());
   }
 }
 
