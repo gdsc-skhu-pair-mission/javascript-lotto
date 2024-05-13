@@ -1,5 +1,4 @@
 import { LOTTO_RESULT } from './constants/Constants.js';
-import { OUTPUT_MESSAGE } from './constants/Message.js';
 
 class Statistics {
   #results = {
