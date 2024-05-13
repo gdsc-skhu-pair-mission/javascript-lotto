@@ -13,7 +13,7 @@ export const OUTPUT_MESSAGE = Object.freeze({
   /*
    * 당첨 통계 출력 메세지
    */
-  winning_statistics: (statistics) => `\n당첨통계\n---\n${statistics}`,
+  winning_statistics: (statistics) => `${statistics}`,
 
   /*
    * 총 수익률 출력 메세지

@@ -58,7 +58,9 @@ class Statistics {
   }
 
   getResults() {
-    return OUTPUT_MESSAGE.winning_statistics(this.formatResults());
+    const formattedResults = this.formatResults();
+    const resultsWithHeader = `\n당첨통계\n---\n${formattedResults}`;
+    return resultsWithHeader;
   }
 
   getRankResults() {
