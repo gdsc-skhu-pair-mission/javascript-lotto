@@ -9,11 +9,16 @@ import OutputView from './view/OutputView.js';
 import LottoGenerator from './LottoGenerator.js';
 
 class Game {
+  #purchase;
+  #winningNumbers;
+  #bonusNumber;
+  #lottos;
+
   constructor() {
-    this.purchase = ' ';
-    this.winningNumbers = [];
-    this.bonusNumber = 0;
-    this.lottos = [];
+    this.#purchase = ' ';
+    this.#winningNumbers = [];
+    this.#bonusNumber = 0;
+    this.#lottos = [];
   }
 
   async start() {
@@ -26,13 +31,13 @@ class Game {
 
   async initPurchaseAmount() {
     const inputUserMoney = await InputView.getInputMoney();
-    this.purchase = new Purchase(inputUserMoney);
-    OutputView.showLottoCount(this.purchase.getQuantity());
+    this.#purchase = new Purchase(inputUserMoney);
+    OutputView.showLottoCount(this.#purchase.getQuantity());
   }
 
   showLottoNumbers() {
-    this.lottos = LottoGenerator.generate(this.purchase.getQuantity());
-    this.lottos.forEach((lotto) => {
+    this.#lottos = LottoGenerator.generate(this.#purchase.getQuantity());
+    this.#lottos.forEach((lotto) => {
       OutputView.showLottoNumbers(lotto);
     });
   }
@@ -42,7 +47,7 @@ class Game {
     const inputWinningNumberNumberVersion = this.changeStringToArray(
       inputWinningNumberStringVersion,
     );
-    this.winningNumbers = new Lotto(
+    this.#winningNumbers = new Lotto(
       inputWinningNumberNumberVersion,
     ).getLottoArray();
   }
@@ -57,22 +62,22 @@ class Game {
 
   async initBonusNumber() {
     const inputBonusNumber = await InputView.getBonusNumber();
-    this.bonusNumber = new Bonus(
+    this.#bonusNumber = new Bonus(
       inputBonusNumber,
-      this.winningNumbers,
+      this.#winningNumbers,
     ).getBonusNumber();
   }
 
   showResult() {
     const statistics = new Statistics(
-      this.lottos,
-      this.winningNumbers,
-      this.bonusNumber,
+      this.#lottos,
+      this.#winningNumbers,
+      this.#bonusNumber,
     );
     statistics.main();
     const result = statistics.getResult();
     OutputView.showStatistics(result);
-    const rate = statistics.calculateRate(this.purchase.getAmount());
+    const rate = statistics.calculateRate(this.#purchase.getAmount());
     OutputView.showProfit(rate);
   }
 }

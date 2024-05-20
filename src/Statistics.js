@@ -1,6 +1,9 @@
 import { LOTTO_RESULT, LOTTO_RANK } from './constants/Constants.js';
 
 class Statistics {
+  #lottos;
+  #winningNumber;
+  #bonusNumber;
   #results = {
     [LOTTO_RESULT.FIFTH.match]: 0,
     [LOTTO_RESULT.FOURTH.match]: 0,
@@ -10,9 +13,9 @@ class Statistics {
   };
 
   constructor(lottos, winningNumber, bonusNumber) {
-    this.lottos = lottos;
-    this.winningNumber = winningNumber;
-    this.bonusNumber = bonusNumber;
+    this.#lottos = lottos;
+    this.#winningNumber = winningNumber;
+    this.#bonusNumber = bonusNumber;
     // this.#statistics = statistics;
   }
 
@@ -26,9 +29,9 @@ class Statistics {
   }
 
   calculateResult() {
-    this.lottos.forEach((lotto) => {
+    this.#lottos.forEach((lotto) => {
       const matchNumber = lotto.filter((number) =>
-        this.winningNumber.includes(number),
+        this.#winningNumber.includes(number),
       ).length;
       this.calculateRank(matchNumber, lotto);
     });
@@ -40,7 +43,7 @@ class Statistics {
     }
     if (
       matchNumber === LOTTO_RANK.thirdOrSecond &&
-      lotto.includes(this.bonusNumber)
+      lotto.includes(this.#bonusNumber)
     ) {
       this.#results[matchNumber]--;
       this.#results['5+1']++;
