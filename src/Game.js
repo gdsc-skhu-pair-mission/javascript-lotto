@@ -38,8 +38,21 @@ class Game {
   }
 
   async initWinningNumbers() {
-    const inputWinningNumber = await InputView.getWinningNumbers();
-    this.winningNumbers = new Lotto(inputWinningNumber).getLottoArray();
+    const inputWinningNumberStringVersion = await InputView.getWinningNumbers();
+    const inputWinningNumberNumberVersion = this.changeStringToArray(
+      inputWinningNumberStringVersion,
+    );
+    this.winningNumbers = new Lotto(
+      inputWinningNumberNumberVersion,
+    ).getLottoArray();
+  }
+
+  changeStringToArray(inputNumbers) {
+    let numbers = [];
+
+    numbers = inputNumbers.split(',').map((number) => Number(number));
+
+    return numbers;
   }
 
   async initBonusNumber() {

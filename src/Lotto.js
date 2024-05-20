@@ -7,17 +7,8 @@ class Lotto {
   #numbers;
 
   constructor(inputNumbers) {
-    const numbers = this.changeStringToArray(inputNumbers);
-    this.validate(numbers);
-    this.#numbers = numbers;
-  }
-
-  changeStringToArray(inputNumbers) {
-    let numbers = [];
-
-    numbers = inputNumbers.split(',').map((number) => Number(number));
-
-    return numbers;
+    this.validate(inputNumbers);
+    this.#numbers = inputNumbers;
   }
 
   validate(numbers) {
