@@ -10,6 +10,11 @@ export const LOTTO = Object.freeze({
   maximum: 45,
 });
 
+export const LOTTO_RANK = Object.freeze({
+  okRank: 3,
+  thirdOrSecond: 5,
+});
+
 export const LOTTO_RESULT = Object.freeze({
   FIFTH: {
     match: 3,

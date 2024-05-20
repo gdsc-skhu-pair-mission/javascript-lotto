@@ -1,7 +1,13 @@
-import { LOTTO_RESULT } from './constants/Constants.js';
+import { LOTTO_RESULT, LOTTO_RANK } from './constants/Constants.js';
 
 class Statistics {
-  #results = { 3: 0, 4: 0, 5: 0, '5+1': 0, 6: 0 };
+  #results = {
+    [LOTTO_RESULT.FIFTH.match]: 0,
+    [LOTTO_RESULT.FOURTH.match]: 0,
+    [LOTTO_RESULT.THIRD.match]: 0,
+    [LOTTO_RESULT.SECOND.match]: 0,
+    [LOTTO_RESULT.FIRST.match]: 0,
+  };
 
   constructor(lottos, winningNumber, bonusNumber) {
     this.lottos = lottos;
@@ -29,10 +35,13 @@ class Statistics {
   }
 
   calculateRank(matchNumber, lotto) {
-    if (matchNumber >= 3) {
+    if (matchNumber >= LOTTO_RANK.okRank) {
       this.#results[matchNumber]++;
     }
-    if (matchNumber === 5 && lotto.includes(this.bonusNumber)) {
+    if (
+      matchNumber === LOTTO_RANK.thirdOrSecond &&
+      lotto.includes(this.bonusNumber)
+    ) {
       this.#results[matchNumber]--;
       this.#results['5+1']++;
     }
