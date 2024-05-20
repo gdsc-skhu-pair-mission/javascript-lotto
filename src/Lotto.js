@@ -13,11 +13,10 @@ class Lotto {
   }
 
   changeStringToArray(inputNumbers) {
-    const numbers = [];
+    let numbers = [];
 
-    inputNumbers.split(',').forEach((number) => {
-      numbers.push(Number(number));
-    });
+    numbers = inputNumbers.split(',').map((number) => Number(number));
+
     return numbers;
   }
 

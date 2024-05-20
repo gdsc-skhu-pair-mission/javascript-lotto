@@ -12,6 +12,11 @@ class Statistics {
 
   main() {
     this.calculateResult();
+    /* 얕은 동결이라서 값이 바뀔 수 있다!
+    console.log(LOTTO_RESULT.FOURTH.bonus);
+    LOTTO_RESULT.FOURTH.bonus = true;
+    console.log(LOTTO_RESULT.FOURTH.bonus);
+    */
   }
 
   calculateResult() {
